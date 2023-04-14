@@ -1,15 +1,20 @@
+<h1>LogIn</h1>
+<hr>
 
-<form method="post" action="logincheck">
+<!-- get：urlにパラメータを渡す -->
+<!-- post：見せず、内部でパラメータを渡す-->
+
+<!--form, action：コントローラー遷移先, submit：押下時、action属性を動かす, name：パラメータの変数？ないと渡せない-->
+<form method="post" action="login">
 
 	ID : <input type="text" name="id" /><br/>
 	PW : <input type="password" name="password" /><br/>
 
 	<button type="submit">login</button>
 </form>
+<br>
+<!-- a:リンク、　href：遷移先-->
+<a href="register">Sign in</a><br>
 
-<button>Login</button><br>
-<button>Sign in</button><br>
-
-
-<span th:text="${name}"></span>
-<span th:text="${tel}"></span>
+<!-- <span th:text="${name}"></span>
+<span th:text="${tel}"></span> -->

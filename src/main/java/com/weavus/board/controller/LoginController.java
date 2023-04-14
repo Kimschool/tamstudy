@@ -1,9 +1,7 @@
 package com.weavus.board.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 
 @Controller
 public class LoginController {
@@ -11,25 +9,40 @@ public class LoginController {
 	@RequestMapping("/")
 	public String init() {
 		
-		return "index";
+		return "login";
 	}
 	
 	@RequestMapping("login")
-	public String login(Model model) {
+	public String login(String id, String password) {
 		
-		model.addAttribute("name", "kim");
-		model.addAttribute("tel", "080-3584-2456");
+		if(id.equals("123") && password.equals("123")) {
+			return "main";
+		} else {
+			return "login";
+		}
+	}
+	
+	@RequestMapping("modify")
+	public String modify() {
 		
+		return "modify";
+	}
+	
+	@RequestMapping("register")
+	public String register() {
 		
-		return "login";
+		return "register";
+	}
+	
+	@RequestMapping("update")
+	public String update() {
+		
+		return "main";
 		
 	}
 	
-	@RequestMapping("logincheck")
-	public String logincheck(Model model, String id, String password) {
-		
-		System.out.println(id);
-		System.out.println(password);
+	@RequestMapping("logout")
+	public String logout() {
 		
 		return "login";
 		
