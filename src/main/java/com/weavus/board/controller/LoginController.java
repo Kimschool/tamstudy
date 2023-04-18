@@ -1,10 +1,12 @@
 package com.weavus.board.controller;
 
+import java.lang.StackWalker.Option;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.weavus.board.dao.MemberRepo;
@@ -35,7 +37,14 @@ public class LoginController {
 		model.addAttribute("member", result);
 		model.addAttribute("memberList", resultList);
 		
-		return "main";
+		// IDとパスワードが一致しない場合
+		if(result == null) {
+			model.addAttribute("msg", "IDとパスワードを確認してください。");
+			return "login";
+		// IDとパスワードが一致する場合
+		} else {
+			return "main";
+		}
 		
 		
 //		if(id.equals("123") && password.equals("123")) {
@@ -45,8 +54,13 @@ public class LoginController {
 //		}
 	}
 	
-	@RequestMapping("modify")
-	public String modify() {
+	@RequestMapping("modify/{id}")
+	public String modify(Model model, @PathVariable("id") int id) {
+		
+		
+		Optional<Member> member =  repo.findById(id);
+		
+		model.addAttribute("member", member.get());
 		
 		return "modify";
 	}
@@ -57,8 +71,17 @@ public class LoginController {
 		return "register";
 	}
 	
+	@RequestMapping("registerproc")
+	public String registerproc(Member member) {
+		
+		repo.save(member);
+		
+		return "login";
+	}
+	
 	@RequestMapping("update")
-	public String update() {
+	public String update(Member member) {
+		System.out.println(member);
 		
 		return "main";
 		

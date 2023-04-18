@@ -8,16 +8,15 @@
 
 <h3>会員情報変更</h3>
 
-<form action="update">
-	ID : <input type="text" name="id" readonly value="123"><br>
-	PW1 : <input type="password" name="password1" value="123"><br>
-	PW2 :<input type="password" name="password2" value="123"><br>
-	NAME :<input type="text" name="name" readonly value="kim"><br>
-	ADDRESS :<input type="text" name="address" value="Shinjuku"><br>
-	GENDER : <input type="radio" name="gender" value="m">男<input type="radio" name="gender" value="f">女<br> 
+
+ <form action="/update" method="post">
+	ID : <input type="text" name="id" readonly th:field="${member.id}"><br>
+	PW : <input type="password" name="password" th:field="${member.password}"><br>
+	NAME :<input type="text" name="name" th:field="${member.name}"><br>
+	ADDRESS :<input type="text" name="address" th:field="${member.address}"><br>
 	<input type="submit" value="変更">
 </form>
-</boby>
+</body>
 </html>
 
 

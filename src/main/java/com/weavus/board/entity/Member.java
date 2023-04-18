@@ -20,8 +20,19 @@ public class Member {
 	@Column(length = 10)
 	private String name;
 	
+	@Column(length = 40)
+	private String address;
+	
 	@Column(length = 1)
 	private boolean isDelete;
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	public int getId() {
 		return id;
@@ -57,9 +68,8 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", password=" + password + ", name=" + name + ", isDelete=" + isDelete + "]";
+		return "Member [id=" + id + ", password=" + password + ", name=" + name + ", address=" + address + ", isDelete="
+				+ isDelete + "]";
 	}
-	
-	
 
 }
