@@ -1,3 +1,6 @@
-# Model
-  Dao, H2, jpa, Repository, entity, 画面⇔コントローラー. findById, nativeQuery
+# DAO
+  - 会員登録、会員変更（1/2）
+  
+ th:text -> th:field
+  
   
